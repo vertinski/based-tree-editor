@@ -1,7 +1,7 @@
 # Generative Tree Editor & Loader (Three.js)
 
 <br/>
-<img src="assets/tree_editor.png" width="80%" />
+<img src="assets/tree_editor-001.png" width="80%" />
 <br/>
 
 This project provides a web-based toolset for interactively generating L-system like tree structures using Three.js and `InstancedMesh` for performance. It also includes utilities for saving tree data and parameters, and loading/generating trees from saved files.
