@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Param Loader & Generator - Three.js</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: sans-serif; background-color: #6495ED; color: #eee; }
+        #container { width: 100vw; height: 100vh; display: block; }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 5px;
+            color: #eee;
+        }
+        #controls label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        #controls input[type="file"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+        #controls button {
+             padding: 5px 10px;
+             cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="controls">
+        <label for="fileInput">Load tree_params.json:</label>
+        <input type="file" id="fileInput" accept=".json">
+        <button id="regenerateButton" disabled>Regenerate Tree</button>
+    </div>
+
+    <!-- Import Three.js and OrbitControls -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./three.module.js",
+                "OrbitControls": "./OrbitControls",
+                "TreeGenerator": "./tree_generator.js" 
+            }
+        }
+    </script>
+    <script type="module" src="param_loader_script.js"></script>
+</body>
+</html> 

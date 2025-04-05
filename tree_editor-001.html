@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative Tree - Three.js</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: sans-serif; background-color: #222; color: #eee; }
+        #container { width: 100vw; height: 100vh; display: block; }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 5px;
+            color: #eee;
+            max-width: 250px;
+        }
+        #controls label {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        #controls input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+        }
+        #controls span {
+            font-weight: bold;
+            float: right;
+            min-width: 30px;
+            text-align: right;
+        }
+        h3 { margin-top: 0; border-bottom: 1px solid #555; padding-bottom: 5px;}
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="controls">
+        <h3>Tree Parameters</h3>
+
+        <label for="maxDepth">Max Depth: <span id="maxDepthValue">5</span></label>
+        <input type="range" id="maxDepth" min="1" max="10" step="1" value="5">
+
+        <label for="initialLength">Initial Length: <span id="initialLengthValue">10</span></label>
+        <input type="range" id="initialLength" min="1" max="20" step="0.5" value="10">
+
+        <label for="initialRadius">Initial Radius: <span id="initialRadiusValue">0.7</span></label>
+        <input type="range" id="initialRadius" min="0.1" max="2.0" step="0.05" value="0.7">
+
+        <label for="lengthFactor">Length Factor: <span id="lengthFactorValue">0.7</span></label>
+        <input type="range" id="lengthFactor" min="0.4" max="0.95" step="0.01" value="0.7">
+
+        <label for="branchAngle">Branch Angle (deg): <span id="branchAngleValue">30</span></label>
+        <input type="range" id="branchAngle" min="5" max="90" step="1" value="30">
+
+        <label for="radiusFactor">Radius Factor: <span id="radiusFactorValue">0.6</span></label>
+        <input type="range" id="radiusFactor" min="0.3" max="0.95" step="0.01" value="0.6">
+
+        <label for="minRadius">Min Branch Radius: <span id="minRadiusValue">0.1</span></label>
+        <input type="range" id="minRadius" min="0.01" max="0.2" step="0.01" value="0.1">
+
+        <label for="numBranches">Branches per Node: <span id="numBranchesValue">2</span></label>
+        <input type="range" id="numBranches" min="1" max="5" step="1" value="2">
+
+        <label for="angleVariance">Angle Variance (deg): <span id="angleVarianceValue">10</span></label>
+        <input type="range" id="angleVariance" min="0" max="45" step="1" value="10">
+
+        <label for="lengthVariance">Length Variance (%): <span id="lengthVarianceValue">10</span></label>
+        <input type="range" id="lengthVariance" min="0" max="50" step="1" value="10">
+
+        <label for="taperFactor">Taper Factor: <span id="taperFactorValue">1.0</span></label>
+        <input type="range" id="taperFactor" min="0.1" max="1.0" step="0.01" value="0.68">
+
+        <label for="leafSize">Leaf Size: <span id="leafSizeValue">0.5</span></label>
+        <input type="range" id="leafSize" min="0.1" max="2.0" step="0.05" value="0.5">
+
+        <button id="randomizeButton" style="margin-top: 15px; padding: 8px 12px; width: 100%; cursor: pointer;">Randomize Tree</button>
+
+        <div style="margin-top: 10px; display: flex; gap: 5px;">
+            <button id="saveDataButton" style="flex-grow: 1; padding: 8px 6px; cursor: pointer; background-color: #4CAF50; color: white; border: none;">Save Tree Data</button>
+            <button id="saveParamsButton" style="flex-grow: 1; padding: 8px 6px; cursor: pointer; background-color: #2196F3; color: white; border: none;">Save Params</button>
+        </div>
+
+    </div>
+
+    <!-- Import Three.js and OrbitControls -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./three.module.js",
+                "OrbitControls": "./OrbitControls"
+            }
+        }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
